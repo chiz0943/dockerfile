@@ -1,0 +1,11 @@
+FROM ubuntu:20.04
+LABEL maintainer="ChiZ"
+VOLUME ["/temp"]
+ENV DEBIAN FRONTEND=noninteractive
+
+RUN apt-get update -y \
+	&& apt-get -y install python3-pip \
+	&& apt-get -y install git \
+	&& apt-get -y install wget \
+	&& pip install opencv-contrib-python \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -y install libopencv-dev python3-opencv

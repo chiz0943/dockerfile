@@ -1,0 +1,6 @@
+FROM chiz0943/yolo_base
+LABEL maintainer="ChiZ"
+VOLUME ["/temp"]
+
+CMD cd /yolo \
+    && python3 yolo.py --image-path=/temp

@@ -1,0 +1,14 @@
+FROM chiz0943/opencv
+LABEL maintainer="ChiZ"
+VOLUME ["/temp"]
+ENV DEBIAN FRONTEND=noninteractive
+
+RUN git clone https://github.com/pjreddie/darknet \
+	&& cd darknet \
+	&& make \
+	&& wget https://pjreddie.com/media/files/yolov3.weights \
+	&& cd .. \
+	&& git clone https://github.com/chiz0943/yolo.git \
+	&& cd yolo/yolov3-coco \
+	&& wget https://pjreddie.com/media/files/yolov3.weights
+
