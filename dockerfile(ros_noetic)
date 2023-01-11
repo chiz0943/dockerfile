@@ -1,0 +1,9 @@
+FROM osrf/ros:noetic-desktop-full
+LABEL maintainer="ChiZ"
+
+
+    
+COPY move.py .
+CMD roscore & \
+rosrun turtlesim turtlesim_node & \
+python3 move.py
