@@ -1,0 +1,8 @@
+FROM chiz0943/yolo_base
+LABEL maintainer="ChiZ"
+VOLUME ["/temp"]
+VOLUME ["/output"]
+
+CMD cd /yolo \
+   && python3 yolo.py --video-path=/temp --video-outputFile-path=/output/
+

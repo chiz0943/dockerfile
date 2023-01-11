@@ -1,0 +1,5 @@
+FROM chiz0943/yolo_base
+LABEL maintainer="ChiZ"
+
+CMD cd yolo \
+    && python3 yolo.py 

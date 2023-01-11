@@ -1,0 +1,19 @@
+FROM tiryoh/ros-melodic-desktop
+LABEL maintainer="ChiZ"
+ENV DEBIAN FRONTEND=noninteractive
+
+RUN apt-get update -y \
+	&& apt-get -y install python3-pip \
+	&& apt-get -y install git \
+	&& apt-get -y install wget \
+	&& pip3 install --upgrade pip \
+	&& pip3 install opencv-contrib-python \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -y install libopencv-dev python3-opencv \
+	&& git clone https://github.com/pjreddie/darknet \
+	&& cd darknet \
+	&& make \
+	&& wget https://pjreddie.com/media/files/yolov3.weights \
+	&& cd .. \
+	&& git clone https://github.com/chiz0943/yolo.git \
+	&& cd yolo/yolov3-coco \
+	&& wget https://pjreddie.com/media/files/yolov3.weights
